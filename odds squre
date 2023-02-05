@@ -1,0 +1,34 @@
+import sys
+import time
+
+# declare round == 0
+i = 0
+# true loop to do it for as long computer can
+with open("log.txt", "a") as f:
+    while True:
+        start = time.time()
+        # declare a variable == 1
+        n = 1
+        summ = n
+        
+        # for loop of round
+        print("Summing...")
+
+        for _ in range(0, i):
+            n += 2
+            summ += n
+
+        print("Squaring...")
+        i += 1
+        square = i * i
+        end = time.time()
+        lapse = end - start
+
+        if summ != square:
+            f.write(f"{i} of odds as fail in {lapse}\n")
+            f.write(f"sum ={n} square = {square}\n\n")
+            sys.exit(f"{i} of odds fails")
+        else:
+            print(f"{i} of odds pass! in {lapse}")
+            f.write(f"{i} of odds pass in {lapse}\n\n")
+
